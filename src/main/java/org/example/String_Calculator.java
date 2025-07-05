@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class String_Calculator {
@@ -11,9 +12,17 @@ public class String_Calculator {
         String delimiter = ",|\n";
 
         if (num.startsWith("//")) {
-            String[] parts = num.split("\n", 2);
-            delimiter = Pattern.quote(parts[0].substring(2)); // IMPORTANT to escape regex
-            num = parts[1];
+            Matcher m = Pattern.compile("//\\[(.+)]\\n").matcher(num);
+            if (m.find()) {
+                delimiter = Pattern.quote(m.group(1));
+                num = num.substring(m.end());
+    }
+            else{
+                String[] parts = num.split("\n", 2);
+                delimiter = Pattern.quote(parts[0].substring(2)); // IMPORTANT to escape regex
+                num = parts[1];
+            }
+
         }
 
         String[] tokens = num.split(delimiter);

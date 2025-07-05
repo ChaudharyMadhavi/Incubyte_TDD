@@ -55,6 +55,6 @@ public class String_Calculator_Test {
 
     @Test
     public void testCustomDelimiterAnyLength() {
-        assertEquals(6, calc.add("//[***]\n1***2***3"));
+        assertEquals(51, calc.add("//[***]\n10***40***1"));
     }
 }
