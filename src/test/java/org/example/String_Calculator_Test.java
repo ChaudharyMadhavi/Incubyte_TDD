@@ -21,4 +21,10 @@ public class String_Calculator_Test {
     public void testTwoNumbers() {
         assertEquals(302, calc.add("100,202"));
     }
+
+    @Test
+    public void testMultipleNumbers() {
+        assertEquals(1000000, calc.add("100000,200000,300000,400000"));
+    }
+
 }
