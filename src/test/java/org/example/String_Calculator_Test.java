@@ -17,4 +17,8 @@ public class String_Calculator_Test {
         assertEquals(101, calc.add("101"));
     }
 
+    @Test
+    public void testTwoNumbers() {
+        assertEquals(302, calc.add("100,202"));
+    }
 }
