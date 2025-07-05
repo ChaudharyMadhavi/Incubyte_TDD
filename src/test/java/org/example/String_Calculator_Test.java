@@ -86,6 +86,9 @@ public class String_Calculator_Test {
         assertTrue(ex.getMessage().contains("-100"));
         assertTrue(ex.getMessage().contains("-30"));
     }
-
+    @Test
+    public void testOnlyDelimitersNoNumbers() {
+        assertEquals(0, calc.add(",,,\n\n"));
+    }
 
 }
