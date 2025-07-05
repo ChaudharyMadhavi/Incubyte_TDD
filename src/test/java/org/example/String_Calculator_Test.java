@@ -73,5 +73,19 @@ public class String_Calculator_Test {
 
         assertEquals(500500, calc.add(input.toString()));
     }
+    @Test
+    public void testWhitespaceAroundNumbers() {
+        assertEquals(6, calc.add(" 1 , 2 , 3 ,,"));
+    }
+
+    @Test
+    public void testNegativeNumbersWithMultipleDelimiters() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("//[*][%]\n-100*222%-30");
+        });
+        assertTrue(ex.getMessage().contains("-100"));
+        assertTrue(ex.getMessage().contains("-30"));
+    }
+
 
 }
