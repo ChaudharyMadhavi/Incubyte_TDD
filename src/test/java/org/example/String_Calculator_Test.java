@@ -31,4 +31,8 @@ public class String_Calculator_Test {
     public void testNewlineAsDelimiter() {
         assertEquals(303, calc.add("100\n200,3"));
     }
+    @Test
+    public void testCustomDelimiter() {
+        assertEquals(301, calc.add("//;\n100;201"));
+    }
 }
