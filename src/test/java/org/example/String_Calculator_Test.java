@@ -27,4 +27,8 @@ public class String_Calculator_Test {
         assertEquals(1000000, calc.add("100000,200000,300000,400000"));
     }
 
+    @Test
+    public void testNewlineAsDelimiter() {
+        assertEquals(303, calc.add("100\n200,3"));
+    }
 }
