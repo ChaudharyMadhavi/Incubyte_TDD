@@ -57,4 +57,21 @@ public class String_Calculator_Test {
     public void testCustomDelimiterAnyLength() {
         assertEquals(51, calc.add("//[***]\n10***40***1"));
     }
+    @Test
+    public void testTrailingDelimiter() {
+        assertEquals(6, calc.add("1,2,3,"));
+    }
+
+    @Test
+    public void testLargeInput() {
+        StringBuilder input = new StringBuilder();
+        for (int i = 1; i <= 1000; i++) {
+            input.append(i).append(",");
+        }
+
+        input.setLength(input.length() - 1);
+
+        assertEquals(500500, calc.add(input.toString()));
+    }
+
 }
