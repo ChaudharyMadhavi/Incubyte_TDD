@@ -43,4 +43,18 @@ public class String_Calculator_Test {
         });
         assertTrue(ex.getMessage().contains("-2"));
     }
+
+    @Test
+    public void testMultipleNegatives() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("-19,-20,3");
+        });
+        assertTrue(ex.getMessage().contains("-19"));
+        assertTrue(ex.getMessage().contains("-20"));
+    }
+
+    @Test
+    public void testCustomDelimiterAnyLength() {
+        assertEquals(6, calc.add("//[***]\n1***2***3"));
+    }
 }

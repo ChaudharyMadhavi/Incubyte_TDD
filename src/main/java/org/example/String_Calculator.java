@@ -28,8 +28,8 @@ public class String_Calculator {
         }
 
         if (!negatives.isEmpty()) {
-            throw new IllegalArgumentException("negative numbers not allowed: "+negatives);
-        }
+            throw new IllegalArgumentException("negative numbers not allowed: " + negatives.toString().replaceAll("[\\[\\]]",""));
+    }
         return sum;
     }
 
