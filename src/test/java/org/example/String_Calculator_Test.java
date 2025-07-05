@@ -2,7 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class String_Calculator_Test {
 
@@ -34,5 +34,13 @@ public class String_Calculator_Test {
     @Test
     public void testCustomDelimiter() {
         assertEquals(301, calc.add("//;\n100;201"));
+    }
+
+    @Test
+    public void testNegativeNumber() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("1,-2");
+        });
+        assertTrue(ex.getMessage().contains("-2"));
     }
 }
